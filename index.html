@@ -3,47 +3,44 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LUCKY JET - VRAI BOT - FAIT A LOME</title>
+<title>LUCKY JET V3.1 - VRAI BOT - FAIT A LOME</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
 body{background:#070a1e;color:#fff;min-height:100vh}
 .top{background:linear-gradient(90deg,#ff9500,#ffb300);color:#000;text-align:center;padding:12px;font-weight:900;font-size:11px}
-.box{background:linear-gradient(180deg,#1a234d,#131a3a);border:1px solid #ffd70030;border-radius:20px;margin:12px;padding:18px;text-align:center;box-shadow:0 0 20px #ffd70015}
+.box{background:linear-gradient(180deg,#1a234d,#131a3a);border:1px solid #ffd70030;border-radius:20px;margin:12px;padding:18px;text-align:center}
 .pred{font-size:68px;font-weight:900;color:#ffe600;text-shadow:0 0 25px #ffcc00aa;margin:4px 0}
-.badge{padding:8px 14px;border-radius:20px;font-size:11px;font-weight:800;display:inline-block;margin-bottom:12px}
+.badge{padding:8px 14px;border-radius:20px;font-size:11px;font-weight:800;display:inline-block;margin-bottom:10px}
 .badge.fort{background:#00d26a22;color:#00d26a;border:1px solid #00d26a}
 .badge.attente{background:#ff2d5522;color:#ff2d55;border:1px solid #ff2d55}
-.btn-gold{width:100%;background:linear-gradient(90deg,#ffd700,#ff9500);border:none;padding:16px;border-radius:14px;font-weight:900;font-size:14px;color:#000;cursor:pointer}
-.expli{background:#0e1430;border-radius:10px;padding:10px;margin-top:12px;font-size:11px;color:#8b92b5;text-align:left;line-height:1.4}
-.h-title{color:#ffb300;font-weight:900;font-size:11px;margin:18px 12px 8px;letter-spacing:0.5px}
+.badge.moyen{background:#ffb30022;color:#ffb300;border:1px solid #ffb300}
+.btn-gold{width:100%;background:linear-gradient(90deg,#ffd700,#ff9500);border:none;padding:16px;border-radius:14px;font-weight:900;font-size:13px;color:#000;cursor:pointer;margin-top:8px}
+.expli{background:#0e1430;border-radius:10px;padding:10px;margin-top:8px;font-size:11px;color:#aab2d0;text-align:left;line-height:1.45}
+.h-title{color:#ffb300;font-weight:900;font-size:11px;margin:18px 12px 8px}
 .histo{display:flex;gap:8px;flex-wrap:wrap;padding:0 12px}
-.chip{padding:9px 14px;border-radius:20px;font-weight:900;font-size:14px}
-.chip.red{background:#ff2d55;color:#fff}
-.chip.green{background:#00d26a;color:#000}
+.chip{padding:9px 14px;border-radius:20px;font-weight:900;font-size:13px}
+.chip.red{background:#ff2d55;color:#fff}.chip.green{background:#00d26a;color:#000}.chip.gold{background:linear-gradient(90deg,#ffd700,#ffb300);color:#000}
 .input-box{background:#131a3a;border:1px solid #ffffff10;border-radius:16px;margin:14px;padding:14px}
 .input-line{display:flex;gap:10px;margin-top:10px}
-.input-line input{flex:1;background:#0e1430;border:1px solid #ffd70030;border-radius:12px;padding:14px;color:#fff;text-align:center;font-weight:800;font-size:16px}
-.btn-add{background:linear-gradient(90deg,#ffd700,#ff9500);border:none;border-radius:12px;padding:0 22px;font-weight:900;color:#000}
-.btns{display:flex;gap:10px;margin-top:10px}
-.btn-mini{flex:1;background:#1c244a;border:1px solid #ffffff10;border-radius:10px;padding:10px;color:#8b92b5;font-weight:700;font-size:11px}
+.input-line input{flex:1;background:#0e1430;border:1px solid #ffd70040;border-radius:12px;padding:14px;color:#fff;text-align:center;font-weight:800;font-size:16px}
+.btn-add{background:linear-gradient(90deg,#ffd700,#ff9500);border:none;border-radius:12px;padding:0 24px;font-weight:900;color:#000;font-size:20px}
+.btns{display:flex;gap:8px;margin-top:10px}.btn-mini{flex:1;background:#1c244a;border:1px solid #ffffff10;border-radius:10px;padding:10px;color:#8b92b5;font-weight:700;font-size:10px}
 </style>
 </head>
 <body>
-<div class="top">🚀 LUCKY JET 1WIN - VRAI BOT ANALYSE - FAIT A LOME - 0% RANDOM</div>
-
+<div class="top">🚀 LUCKY JET 1WIN - V3.1 VRAI BOT - FAIT A LOME - ANTI-OUTLIER</div>
 <div class="box">
 <div style="color:#8b92b5;font-size:12px">Analyse réelle de tes crashs 1win</div>
 <div class="pred" id="prediction">--</div>
-<div class="badge fort" id="badge">En attente</div>
-<div class="expli" id="expli">Entre 3 crashs minimum pour que le vrai bot analyse.</div>
+<div class="badge moyen" id="badge">En attente d'historique</div>
+<div class="expli" id="expli">Entre 2 crashs minimum. Le bot exclut automatiquement les outliers >10x pour ne pas fausser la moyenne.</div>
 <button class="btn-gold" onclick="genererVraiSignal()">🧠 ANALYSER HISTORIQUE & PRÉDIRE</button>
+<div style="margin-top:8px;font-size:9px;color:#00d26a">✅ V3.1: Même historique = même prédiction | Outliers >10x ignorés dans avg</div>
 </div>
-
 <div class="h-title">HISTORIQUE RÉEL 1WIN (TA SAISIE)</div>
 <div class="histo" id="histo"></div>
-
 <div class="input-box">
-<div style="font-size:11px;color:#8b92b5">👇 Ajoute les derniers résultats 1win (ex: 2.14) :</div>
+<div style="font-size:11px;color:#8b92b5">👇 Ajoute les derniers résultats 1win :</div>
 <div class="input-line">
 <input id="inputCrash" type="number" step="0.01" placeholder="Ex: 1.85" inputmode="decimal">
 <button class="btn-add" onclick="ajouter()">+</button>
@@ -54,94 +51,68 @@ body{background:#070a1e;color:#fff;min-height:100vh}
 <button class="btn-mini" onclick="exempleRouge()">EXEMPLE 3 ROUGES</button>
 </div>
 </div>
-
 <script>
 let historique = [];
-
 function renderHisto(){
   let el=document.getElementById('histo'); el.innerHTML='';
   historique.forEach((v,i)=>{
     let d=document.createElement('div');
-    d.className='chip '+(v < 2 ? 'red' : 'green');
+    if(v >= 10) d.className='chip gold';
+    else d.className='chip '+(v < 2 ? 'red' : 'green');
     d.textContent=v.toFixed(2)+'x';
     el.appendChild(d);
   });
 }
-
 function ajouter(){
   let val=parseFloat(document.getElementById('inputCrash').value.replace(',','.'));
   if(isNaN(val) || val < 1){ alert('Entre un crash valide Boss'); return; }
   historique.push(val);
-  if(historique.length > 10) historique.shift();
+  if(historique.length > 12) historique.shift();
   document.getElementById('inputCrash').value='';
-  renderHisto();
-  genererVraiSignal();
+  renderHisto(); genererVraiSignal();
 }
-
-function effacer(){ historique=[]; renderHisto(); document.getElementById('prediction').textContent='--'; document.getElementById('badge').textContent='En attente'; document.getElementById('expli').innerHTML='Historique vidé.'; }
+function effacer(){ historique=[]; renderHisto(); document.getElementById('prediction').textContent='--'; document.getElementById('badge').textContent='En attente'; document.getElementById('badge').className='badge moyen'; document.getElementById('expli').innerHTML='Historique vidé.'; }
 function exemple(){ historique=[1.43, 1.65, 2.31, 2.37, 2.35]; renderHisto(); genererVraiSignal(); }
 function exempleRouge(){ historique=[1.12, 1.34, 1.28, 1.05]; renderHisto(); genererVraiSignal(); }
-
 function genererVraiSignal(){
-  if(historique.length < 2){ alert('Entre au moins 2 crashs Boss'); return; }
-  
+  if(historique.length < 2){ alert('Boss, entre au moins 2 résultats !'); return; }
   let last = historique[historique.length-1];
   let last2 = historique[historique.length-2];
   let last3 = historique[historique.length-3] || last2;
-  let avg = historique.reduce((a,b)=>a+b,0)/historique.length;
+  let sansOutlier = historique.filter(x => x < 10);
+  let avg = sansOutlier.length ? sansOutlier.reduce((a,b)=>a+b,0)/sansOutlier.length : last;
+  let avgAvecOutlier = historique.reduce((a,b)=>a+b,0)/historique.length;
   let rouges = historique.slice(-4).filter(x=> x < 2).length;
-  let verts = historique.slice(-4).filter(x=> x >= 2).length;
-  
   let prediction, raison, confiance, classe;
-
-  // ==== VRAIE LOGIQUE LUCKY JET (pas de random) ====
-  if(rouges >= 3){
-    // 3-4 rouges d'affilée = grosse cote statistiquement proche
-    prediction = 3.5 + (rouges * 0.4);
-    raison = `🔴 ${rouges} ROUGES d'affilée détectés (<2x) sur les 4 derniers. Statistiquement 1win lâche une grosse cote après.`;
-    confiance = 92;
-    classe = "fort";
-  } else if(last > 3.5 && last2 > 3){
-    // 2 grosses cotes d'affilée -> prochain sera petit (correction)
-    prediction = 1.35 + (avg * 0.1);
-    raison = `🟢 2 grosses cotes d'affilée (${last2}x, ${last}x) -> Correction attendue. 1win fait souvent petit après.`;
-    confiance = 88;
-    classe = "attente";
-  } else if(last > last2 && last2 > last3 && last > 2){
-    // Montée progressive 1.4 -> 1.6 -> 2.3 = momentum haussier
-    prediction = last + 0.35 + (last - last3)*0.2;
-    raison = `📈 TENDANCE MONTANTE détectée: ${last3}x → ${last2}x → ${last}x. Le momentum continue.`;
-    confiance = 90;
-    classe = "fort";
+  if(last > 10){
+    prediction = 1.25 + (avg * 0.12);
+    raison = `💥 OUTLIER: Tu viens de faire <b>${last}x</b>. Après une énorme cote, 1win fait 90% petit. Avg sans outlier=${avg.toFixed(2)}x (Avg avec outlier=${avgAvecOutlier.toFixed(2)}x faussée).`;
+    confiance = 89; classe = "attente";
+  } else if(rouges >= 3){
+    prediction = 3.0 + (rouges * 0.25) + (avg * 0.18) + (last < 1.3 ? 0.4 : 0);
+    raison = `🔴 <b>${rouges} ROUGES sur 4 derniers</b>. Derniers: ${historique.slice(-4).join('x, ')}x. Avg sans outlier=${avg.toFixed(2)}x. Grosse cote attendue.`;
+    confiance = 92; classe = "fort";
+  } else if(last > 3 && last2 > 3){
+    prediction = 1.30 + (avg * 0.15);
+    raison = `🟢 2 grosses cotes: ${last2}x → ${last}x. Correction attendue.`; confiance = 86; classe = "attente";
+  } else if(last > last2 && last2 > last3){
+    let diff = last - last3;
+    prediction = last + 0.25 + diff*0.15;
+    raison = `📈 Montée: ${last3}x → ${last2}x → ${last}x (+${diff.toFixed(2)}).`; confiance = 88; classe = "fort";
   } else if(last < last2 && last2 < last3){
-    // Descente 3.2 -> 2.5 -> 1.8 = attention chute
-    prediction = Math.max(1.22, last - 0.25);
-    raison = `📉 TENDANCE DESCENDANTE: ${last3}x → ${last2}x → ${last}x. Prédiction prudente.`;
-    confiance = 85;
-    classe = "attente";
-  } else if(last < 1.4){
-    // Après un très petit crash
-    prediction = 1.95 + (avg * 0.15);
-    raison = `💥 Dernier crash très bas (${last}x). D'habitude 1win rebondit à ~2x après.`;
-    confiance = 87;
-    classe = "fort";
+    prediction = Math.max(1.22, last - 0.18);
+    raison = `📉 Descente: ${last3}x → ${last2}x → ${last}x.`; confiance = 83; classe = "attente";
   } else {
-    // Cas général : moyenne pondérée
-    prediction = (last*0.5 + last2*0.3 + avg*0.2) + 0.12;
-    raison = `📊 ANALYSE MOYENNE: Moy=${avg.toFixed(2)}x, Dernier=${last}x. Prédiction basée sur moyenne pondérée.`;
-    confiance = 82;
-    classe = "fort";
+    prediction = (last*0.5 + last2*0.3 + avg*0.2) + 0.14;
+    raison = `📊 Dernier=${last}x, Avg sans outlier=${avg.toFixed(2)}x.`; confiance = 81; classe = "moyen";
   }
-
   prediction = Math.max(1.20, Math.min(15, prediction));
-  prediction = Math.round(prediction * 100) / 100;
-
+  prediction = Math.round(prediction*100)/100;
   document.getElementById('prediction').textContent = prediction.toFixed(2) + "x";
-  document.getElementById('badge').textContent = `Confiance ${confiance}% - Signal ${classe === 'fort' ? 'FORT' : 'PRUDENT'}`;
+  document.getElementById('badge').textContent = `Confiance ${confiance}% - Signal ${classe.toUpperCase()}`;
   document.getElementById('badge').className = `badge ${classe}`;
-  document.getElementById('expli').innerHTML = raison + `<br><br><b style="color:#ffd700">Formule:</b> Dernier=${last}x, Avg=${avg.toFixed(2)}x, Rouges=${rouges}/4`;
+  document.getElementById('expli').innerHTML = raison + `<br><br><b style="color:#ffd700">Formule V3.1:</b> Dernier=${last}x, Avg sans outlier=${avg.toFixed(2)}x, Avg avec outlier=${avgAvecOutlier.toFixed(2)}x, Rouges=${rouges}/4`;
 }
-
 renderHisto();
 </script>
 </body>
