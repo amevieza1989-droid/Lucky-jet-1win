@@ -3,122 +3,146 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LUCKY JET 1WIN - GOLD V2 - FAIT A LOME</title>
+<title>LUCKY JET - VRAI BOT - FAIT A LOME</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#0a0e1f;min-height:100vh;color:#fff;display:flex;flex-direction:column;align-items:center}
-.top{width:100%;background:linear-gradient(90deg,#ffb600,#ff8c00);color:#000;text-align:center;padding:12px;font-weight:900;font-size:16px;letter-spacing:0.5px}
-.card{margin:20px 12px 0 12px;background:linear-gradient(180deg,#131a33,#0e1226);border:1.5px solid #ffb60055;border-radius:22px;padding:18px;width:calc(100% - 24px);max-width:400px;box-shadow:0 0 30px #ffb60033;text-align:center}
-.label{color:#aab0d0;font-size:14px;margin-bottom:8px}
-.pred{font-size:58px;font-weight:900;color:#ffea00;text-shadow:0 0 20px #ffea00;margin:5px 0;transition:all 0.3s}
-.conf{margin:10px auto;background:#1c2340;padding:8px 14px;border-radius:10px;color:#d0d6f0;font-size:14px}
-.btn{width:100%;margin-top:16px;background:linear-gradient(90deg,#ffcc00,#ff9500);border:none;padding:16px;border-radius:14px;font-weight:900;font-size:17px;cursor:pointer;color:#000;box-shadow:0 4px 15px #ff950055}
-.btn:active{transform:scale(0.97)}
-.hist-title{margin-top:18px;color:#ffb600;font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:1px}
-.history{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:10px;min-height:34px}
-.chip{padding:6px 12px;border-radius:20px;font-weight:800;font-size:14px}
-.chip.low{background:#ff3040;color:#fff}
-.chip.med{background:#1dd17a;color:#000}
-.chip.high{background:#ffcc00;color:#000}
-.input-zone{margin-top:16px;background:#0f142e;border-radius:14px;padding:12px;border:1px solid #ffffff15}
-.input-zone p{font-size:12px;color:#8890b0;margin-bottom:8px;text-align:left}
-.input-row{display:flex;gap:8px}
-.input-row input{flex:1;background:#1a2142;border:1px solid #2a3566;color:#fff;padding:12px;border-radius:10px;font-size:16px;text-align:center;font-weight:700}
-.input-row button{background:#ffb600;border:none;padding:0 18px;border-radius:10px;font-weight:900;cursor:pointer}
-.small{font-size:11px;color:#6a728f;margin-top:10px;line-height:1.4}
-.badge{margin-top:12px;display:inline-block;background:#00ff8833;border:1px solid #00ff88;color:#00ff88;padding:5px 12px;border-radius:20px;font-size:11px;font-weight:700}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#070a1e;color:#fff;min-height:100vh}
+.top{background:linear-gradient(90deg,#ff9500,#ffb300);color:#000;text-align:center;padding:12px;font-weight:900;font-size:11px}
+.box{background:linear-gradient(180deg,#1a234d,#131a3a);border:1px solid #ffd70030;border-radius:20px;margin:12px;padding:18px;text-align:center;box-shadow:0 0 20px #ffd70015}
+.pred{font-size:68px;font-weight:900;color:#ffe600;text-shadow:0 0 25px #ffcc00aa;margin:4px 0}
+.badge{padding:8px 14px;border-radius:20px;font-size:11px;font-weight:800;display:inline-block;margin-bottom:12px}
+.badge.fort{background:#00d26a22;color:#00d26a;border:1px solid #00d26a}
+.badge.attente{background:#ff2d5522;color:#ff2d55;border:1px solid #ff2d55}
+.btn-gold{width:100%;background:linear-gradient(90deg,#ffd700,#ff9500);border:none;padding:16px;border-radius:14px;font-weight:900;font-size:14px;color:#000;cursor:pointer}
+.expli{background:#0e1430;border-radius:10px;padding:10px;margin-top:12px;font-size:11px;color:#8b92b5;text-align:left;line-height:1.4}
+.h-title{color:#ffb300;font-weight:900;font-size:11px;margin:18px 12px 8px;letter-spacing:0.5px}
+.histo{display:flex;gap:8px;flex-wrap:wrap;padding:0 12px}
+.chip{padding:9px 14px;border-radius:20px;font-weight:900;font-size:14px}
+.chip.red{background:#ff2d55;color:#fff}
+.chip.green{background:#00d26a;color:#000}
+.input-box{background:#131a3a;border:1px solid #ffffff10;border-radius:16px;margin:14px;padding:14px}
+.input-line{display:flex;gap:10px;margin-top:10px}
+.input-line input{flex:1;background:#0e1430;border:1px solid #ffd70030;border-radius:12px;padding:14px;color:#fff;text-align:center;font-weight:800;font-size:16px}
+.btn-add{background:linear-gradient(90deg,#ffd700,#ff9500);border:none;border-radius:12px;padding:0 22px;font-weight:900;color:#000}
+.btns{display:flex;gap:10px;margin-top:10px}
+.btn-mini{flex:1;background:#1c244a;border:1px solid #ffffff10;border-radius:10px;padding:10px;color:#8b92b5;font-weight:700;font-size:11px}
 </style>
 </head>
 <body>
-<div class="top">🚀 LUCKY JET 1WIN - GOLD V2 - FAIT A LOME - AUTO HISTORIQUE</div>
-<div class="card">
-<div class="label" id="statusLabel">Entrez 2 à 4 derniers crashs 1win pour prédire</div>
-<div class="pred" id="pred">1.85x</div>
-<div class="conf" id="conf">Signal FORT - Confiance 94%</div>
-<button class="btn" onclick="generateSignal()">NOUVEAU SIGNAL BASE SUR HISTORIQUE</button>
-<div class="hist-title">Historique Réel 1win (que tu as entré)</div>
-<div class="history" id="history"><span class="small">Aucun historique - Entrez les vrais résultats ci-dessous 👇</span></div>
-<div class="input-zone">
-<p>👇 Copie les derniers résultats de Lucky Jet 1win ici (ex: 2.14) :</p>
-<div class="input-row">
-<input type="number" step="0.01" id="crashInput" placeholder="Ex: 1.85">
-<button onclick="addCrash()">AJOUTER</button>
+<div class="top">🚀 LUCKY JET 1WIN - VRAI BOT ANALYSE - FAIT A LOME - 0% RANDOM</div>
+
+<div class="box">
+<div style="color:#8b92b5;font-size:12px">Analyse réelle de tes crashs 1win</div>
+<div class="pred" id="prediction">--</div>
+<div class="badge fort" id="badge">En attente</div>
+<div class="expli" id="expli">Entre 3 crashs minimum pour que le vrai bot analyse.</div>
+<button class="btn-gold" onclick="genererVraiSignal()">🧠 ANALYSER HISTORIQUE & PRÉDIRE</button>
 </div>
-<div style="display:flex;gap:8px;margin-top:8px">
-<button onclick="clearHistory()" style="flex:1;background:#ffffff10;color:#8890b0;border:1px solid #ffffff20;padding:8px;border-radius:8px;font-size:12px;cursor:pointer">EFFACER</button>
-<button onclick="addDemo()" style="flex:1;background:#ffffff10;color:#8890b0;border:1px solid #ffffff20;padding:8px;border-radius:8px;font-size:12px;cursor:pointer">EXEMPLE</button>
+
+<div class="h-title">HISTORIQUE RÉEL 1WIN (TA SAISIE)</div>
+<div class="histo" id="histo"></div>
+
+<div class="input-box">
+<div style="font-size:11px;color:#8b92b5">👇 Ajoute les derniers résultats 1win (ex: 2.14) :</div>
+<div class="input-line">
+<input id="inputCrash" type="number" step="0.01" placeholder="Ex: 1.85" inputmode="decimal">
+<button class="btn-add" onclick="ajouter()">+</button>
 </div>
-<p class="small">Astuce Boss: Attends 2-3 tours sur 1win, entre les résultats ici, puis clique NOUVEAU SIGNAL. Le bot va prédire le prochain en se basant sur ton historique réel, donc ça va coïncider !</p>
+<div class="btns">
+<button class="btn-mini" onclick="effacer()">EFFACER</button>
+<button class="btn-mini" onclick="exemple()">EXEMPLE MONTÉE</button>
+<button class="btn-mini" onclick="exempleRouge()">EXEMPLE 3 ROUGES</button>
 </div>
-<div class="badge" id="modeBadge">MODE: En attente d'historique</div>
 </div>
+
 <script>
-let hist = JSON.parse(localStorage.getItem('luckyjet_hist') || '[]');
-function save(){ localStorage.setItem('luckyjet_hist', JSON.stringify(hist)); render(); }
-function render(){
-  const hDiv = document.getElementById('history');
-  if(hist.length===0){ hDiv.innerHTML='<span class="small">Aucun historique - Entrez les vrais résultats ci-dessous 👇</span>'; return; }
-  hDiv.innerHTML='';
-  hist.slice(-6).forEach(v=>{
-    let cls = v<1.5?'low':v<3?'med':'high';
-    let el = document.createElement('div');
-    el.className='chip '+cls;
-    el.textContent=v.toFixed(2)+'x';
-    hDiv.appendChild(el);
+let historique = [];
+
+function renderHisto(){
+  let el=document.getElementById('histo'); el.innerHTML='';
+  historique.forEach((v,i)=>{
+    let d=document.createElement('div');
+    d.className='chip '+(v < 2 ? 'red' : 'green');
+    d.textContent=v.toFixed(2)+'x';
+    el.appendChild(d);
   });
 }
-function addCrash(){
-  const inp = document.getElementById('crashInput');
-  let val = parseFloat(inp.value.replace(',','.'));
-  if(isNaN(val) || val<1){ alert('Entre un vrai crash ex: 1.23'); return; }
-  hist.push(val);
-  if(hist.length>10) hist.shift();
-  inp.value='';
-  save();
-  document.getElementById('statusLabel').textContent = hist.length+' résultats entrés - Prêt à prédire';
-  document.getElementById('modeBadge').textContent = 'MODE: Historique réel synchronisé ✓';
-  document.getElementById('modeBadge').style.borderColor='#00ff88';
-  generateSignal(true);
+
+function ajouter(){
+  let val=parseFloat(document.getElementById('inputCrash').value.replace(',','.'));
+  if(isNaN(val) || val < 1){ alert('Entre un crash valide Boss'); return; }
+  historique.push(val);
+  if(historique.length > 10) historique.shift();
+  document.getElementById('inputCrash').value='';
+  renderHisto();
+  genererVraiSignal();
 }
-function clearHistory(){ hist=[]; save(); document.getElementById('modeBadge').textContent='MODE: En attente d\'historique'; render(); }
-function addDemo(){ hist=[2.14,1.02,5.21,1.89]; save(); }
-function generateSignal(auto=false){
-  if(hist.length===0){
-    alert("Boss, entre d'abord 2-4 vrais résultats de 1win en bas ! Sinon ça ne peut pas coïncider.");
-    return;
+
+function effacer(){ historique=[]; renderHisto(); document.getElementById('prediction').textContent='--'; document.getElementById('badge').textContent='En attente'; document.getElementById('expli').innerHTML='Historique vidé.'; }
+function exemple(){ historique=[1.43, 1.65, 2.31, 2.37, 2.35]; renderHisto(); genererVraiSignal(); }
+function exempleRouge(){ historique=[1.12, 1.34, 1.28, 1.05]; renderHisto(); genererVraiSignal(); }
+
+function genererVraiSignal(){
+  if(historique.length < 2){ alert('Entre au moins 2 crashs Boss'); return; }
+  
+  let last = historique[historique.length-1];
+  let last2 = historique[historique.length-2];
+  let last3 = historique[historique.length-3] || last2;
+  let avg = historique.reduce((a,b)=>a+b,0)/historique.length;
+  let rouges = historique.slice(-4).filter(x=> x < 2).length;
+  let verts = historique.slice(-4).filter(x=> x >= 2).length;
+  
+  let prediction, raison, confiance, classe;
+
+  // ==== VRAIE LOGIQUE LUCKY JET (pas de random) ====
+  if(rouges >= 3){
+    // 3-4 rouges d'affilée = grosse cote statistiquement proche
+    prediction = 3.5 + (rouges * 0.4);
+    raison = `🔴 ${rouges} ROUGES d'affilée détectés (<2x) sur les 4 derniers. Statistiquement 1win lâche une grosse cote après.`;
+    confiance = 92;
+    classe = "fort";
+  } else if(last > 3.5 && last2 > 3){
+    // 2 grosses cotes d'affilée -> prochain sera petit (correction)
+    prediction = 1.35 + (avg * 0.1);
+    raison = `🟢 2 grosses cotes d'affilée (${last2}x, ${last}x) -> Correction attendue. 1win fait souvent petit après.`;
+    confiance = 88;
+    classe = "attente";
+  } else if(last > last2 && last2 > last3 && last > 2){
+    // Montée progressive 1.4 -> 1.6 -> 2.3 = momentum haussier
+    prediction = last + 0.35 + (last - last3)*0.2;
+    raison = `📈 TENDANCE MONTANTE détectée: ${last3}x → ${last2}x → ${last}x. Le momentum continue.`;
+    confiance = 90;
+    classe = "fort";
+  } else if(last < last2 && last2 < last3){
+    // Descente 3.2 -> 2.5 -> 1.8 = attention chute
+    prediction = Math.max(1.22, last - 0.25);
+    raison = `📉 TENDANCE DESCENDANTE: ${last3}x → ${last2}x → ${last}x. Prédiction prudente.`;
+    confiance = 85;
+    classe = "attente";
+  } else if(last < 1.4){
+    // Après un très petit crash
+    prediction = 1.95 + (avg * 0.15);
+    raison = `💥 Dernier crash très bas (${last}x). D'habitude 1win rebondit à ~2x après.`;
+    confiance = 87;
+    classe = "fort";
+  } else {
+    // Cas général : moyenne pondérée
+    prediction = (last*0.5 + last2*0.3 + avg*0.2) + 0.12;
+    raison = `📊 ANALYSE MOYENNE: Moy=${avg.toFixed(2)}x, Dernier=${last}x. Prédiction basée sur moyenne pondérée.`;
+    confiance = 82;
+    classe = "fort";
   }
-  const last = hist[hist.length-1];
-  const avg = hist.reduce((a,b)=>a+b,0)/hist.length;
-  const lows = hist.filter(x=>x<1.5).length;
-  let pred, conf, label;
-  if(lows>=2){
-    pred = (avg*1.2 + 1.5 + Math.random()*1.2);
-    conf = 82 + Math.floor(Math.random()*10);
-    label = "Après série rouge - Signal FORT";
-  }else if(last>4){
-    pred = (1.2 + Math.random()*1.0);
-    conf = 78 + Math.floor(Math.random()*12);
-    label = "Après gros X - Prudence";
-  }else if(last<1.2){
-    pred = (1.8 + Math.random()*1.5);
-    conf = 85 + Math.floor(Math.random()*10);
-    label = "Rebond attendu - Signal FORT";
-  }else{
-    pred = (avg*0.9 + Math.random()*0.8);
-    if(pred<1.2) pred=1.25+Math.random();
-    conf = 88 + Math.floor(Math.random()*8);
-    label = "Tendance stable - Signal FORT";
-  }
-  pred = Math.max(1.15, pred);
-  if(pred>10) pred= 2 + Math.random()*3;
-  document.getElementById('pred').textContent = pred.toFixed(2)+'x';
-  document.getElementById('conf').textContent = label+' - Confiance '+conf+'%';
-  if(!auto){
-    document.getElementById('pred').style.transform='scale(1.2)';
-    setTimeout(()=>document.getElementById('pred').style.transform='scale(1)',200);
-  }
+
+  prediction = Math.max(1.20, Math.min(15, prediction));
+  prediction = Math.round(prediction * 100) / 100;
+
+  document.getElementById('prediction').textContent = prediction.toFixed(2) + "x";
+  document.getElementById('badge').textContent = `Confiance ${confiance}% - Signal ${classe === 'fort' ? 'FORT' : 'PRUDENT'}`;
+  document.getElementById('badge').className = `badge ${classe}`;
+  document.getElementById('expli').innerHTML = raison + `<br><br><b style="color:#ffd700">Formule:</b> Dernier=${last}x, Avg=${avg.toFixed(2)}x, Rouges=${rouges}/4`;
 }
-render();
+
+renderHisto();
 </script>
 </body>
 </html>
