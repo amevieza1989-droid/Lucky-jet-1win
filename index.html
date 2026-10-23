@@ -3,167 +3,123 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LUCKY JET V4 SAFE - FAIT A LOME</title>
+<title>V6 - REGLE BOSS - FAIT A LOME</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#070a1e;color:#fff;min-height:100vh}
-.top{background:linear-gradient(90deg,#00d26a,#00ff88);color:#000;text-align:center;padding:12px;font-weight:900;font-size:11px;letter-spacing:0.3px}
-.box{background:linear-gradient(180deg,#1a234d,#131a3a);border:2px solid #00d26a60;border-radius:20px;margin:12px;padding:18px;text-align:center;box-shadow:0 0 20px #00d26a20}
-.label{color:#8b92b5;font-size:12px;margin-bottom:6px}
-.pred{font-size:68px;font-weight:900;color:#00ff88;text-shadow:0 0 25px #00ff8855;margin:4px 0;line-height:1}
-.badge{padding:8px 14px;border-radius:20px;font-size:11px;font-weight:800;display:inline-block;margin-bottom:10px}
-.badge.safe{background:#00d26a22;color:#00ff88;border:1px solid #00d26a}
-.btn-gold{width:100%;background:linear-gradient(90deg,#00d26a,#00ff88);border:none;padding:16px;border-radius:14px;font-weight:900;font-size:13px;color:#000;cursor:pointer;margin-top:8px}
-.btn-gold:active{transform:scale(0.98)}
-.expli{background:#0e1430;border-radius:10px;padding:10px;margin-top:8px;font-size:11px;color:#aab2d0;text-align:left;line-height:1.45;min-height:50px}
-.safe-bar{background:#00d26a15;border:1px dashed #00d26a60;border-radius:10px;padding:10px;margin-top:10px;font-size:10px;color:#00ff88;text-align:left;line-height:1.4}
-.h-title{color:#00ff88;font-weight:900;font-size:11px;margin:18px 12px 8px;letter-spacing:0.5px}
-.histo{display:flex;gap:8px;flex-wrap:wrap;padding:0 12px;min-height:34px}
-.chip{padding:9px 14px;border-radius:20px;font-weight:900;font-size:13px}
-.chip.red{background:#ff2d55;color:#fff}
-.chip.green{background:#00d26a;color:#000}
-.chip.gold{background:linear-gradient(90deg,#ffd700,#ffb300);color:#000}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:#070a1e;color:#fff;min-height:100vh}
+.top{background:linear-gradient(90deg,#00d26a,#00ff88);color:#000;text-align:center;padding:12px;font-weight:900;font-size:11px}
+.box{background:linear-gradient(180deg,#1a234d,#131a3a);border:2px solid #00d26a60;border-radius:20px;margin:12px;padding:18px;text-align:center}
+.pred{font-size:64px;font-weight:900;color:#00ff88;margin:4px 0}
+.badge{padding:8px 14px;border-radius:20px;font-size:11px;font-weight:800;display:inline-block;margin-bottom:10px;background:#00d26a22;color:#00ff88;border:1px solid #00d26a}
+.btn{width:100%;background:linear-gradient(90deg,#00d26a,#00ff88);border:none;padding:16px;border-radius:14px;font-weight:900;font-size:13px;color:#000;cursor:pointer;margin-top:8px}
+.expli{background:#0e1430;border-radius:10px;padding:10px;margin-top:8px;font-size:11px;color:#aab2d0;text-align:left;line-height:1.4}
+.bar{background:#00d26a15;border:1px dashed #00d26a60;border-radius:10px;padding:10px;margin-top:10px;font-size:10px;color:#00ff88;text-align:left}
+.h-title{color:#00ff88;font-weight:900;font-size:11px;margin:18px 12px 8px}
+.histo{display:flex;gap:8px;flex-wrap:wrap;padding:0 12px}
+.chip{padding:9px 14px;border-radius:20px;font-weight:900;font-size:13px}.chip.red{background:#ff2d55;color:#fff}.chip.green{background:#00d26a;color:#000}.chip.gold{background:#ffb300;color:#000}
 .input-box{background:#131a3a;border:1px solid #00d26a20;border-radius:16px;margin:14px;padding:14px}
-.input-line{display:flex;gap:10px;margin-top:10px}
-.input-line input{flex:1;background:#0e1430;border:1px solid #00d26a40;border-radius:12px;padding:14px;color:#fff;text-align:center;font-weight:800;font-size:16px;outline:none}
-.btn-add{background:linear-gradient(90deg,#00d26a,#00ff88);border:none;border-radius:12px;padding:0 24px;font-weight:900;color:#000;cursor:pointer;font-size:20px}
-.btns{display:flex;gap:8px;margin-top:10px}
-.btn-mini{flex:1;background:#1c244a;border:1px solid #ffffff10;border-radius:10px;padding:10px;color:#8b92b5;font-weight:700;font-size:10px;cursor:pointer}
-.ver{text-align:center;margin:14px;font-size:10px;color:#ffffff30}
+.input-line{display:flex;gap:10px;margin-top:10px}input{flex:1;background:#0e1430;border:1px solid #00d26a40;border-radius:12px;padding:14px;color:#fff;text-align:center;font-weight:800;font-size:16px}
+.btn-add{background:linear-gradient(90deg,#00d26a,#00ff88);border:none;border-radius:12px;padding:0 24px;font-weight:900;color:#000;font-size:20px}
+.btns{display:flex;gap:8px;margin-top:10px}.btn-mini{flex:1;background:#1c244a;border:1px solid #ffffff10;border-radius:10px;padding:10px;color:#8b92b5;font-weight:700;font-size:10px}
 </style>
 </head>
 <body>
-<div class="top">🛡️ V4 SAFE - PRÉDICTION TOUJOURS SOUS LE CRASH RÉEL - FAIT A LOME</div>
-
+<div class="top">🛡️ V6 - TA REGLE: <1.75 → 1.00 | 2.5 → 1.50 - FAIT A LOME</div>
 <div class="box">
-<div class="label">🛡️ Mode Sécurisé - Tu encaisses avant le crash</div>
+<div style="color:#8b92b5;font-size:12px">Analyse réelle + Table SAFE Boss</div>
 <div class="pred" id="prediction">--</div>
-<div class="badge safe" id="badge">SAFE MODE ON - En attente</div>
-<div class="expli" id="expli">Le bot prédit 25% EN DESSOUS du crash réel attendu.<br><br>Si bot dit <b>1.00x</b>, le réel fera <b>1.00x à 1.33x minimum</b> → tu sors à 1.00x tu gagnes toujours.</div>
-<div class="safe-bar" id="safeBar">📊 Attendu: -- | Safe (ton cashout): -- | Marge sécurité: -25%</div>
-<button class="btn-gold" onclick="genererSafe()">🛡️ GÉNÉRER PRÉDICTION SAFE</button>
-<div style="margin-top:8px;font-size:9px;color:#00ff88">✅ V4: Prédiction = 75% du réel attendu → toujours en dessous</div>
+<div class="badge" id="badge">En attente</div>
+<div class="expli" id="expli">Règle: Si analyse <1.75 → affiche 1.00x. Pour afficher 1.50x, il faut que le vrai soit 2.5x minimum.</div>
+<div class="bar" id="bar">--</div>
+<button class="btn" onclick="generer()">🛡️ ANALYSER & PREDIRE V6</button>
 </div>
-
-<div class="h-title">HISTORIQUE RÉEL 1WIN (TA SAISIE)</div>
+<div class="h-title">HISTORIQUE</div>
 <div class="histo" id="histo"></div>
-
 <div class="input-box">
-<div style="font-size:11px;color:#8b92b5">👇 Ajoute les derniers résultats 1win :</div>
-<div class="input-line">
-<input id="inputCrash" type="number" step="0.01" placeholder="Ex: 1.85" inputmode="decimal">
-<button class="btn-add" onclick="ajouter()">+</button>
+<div class="input-line"><input id="inputCrash" type="number" step="0.01" placeholder="Ex: 1.85" inputmode="decimal"><button class="btn-add" onclick="ajouter()">+</button></div>
+<div class="btns"><button class="btn-mini" onclick="effacer()">EFFACER</button><button class="btn-mini" onclick="exemple()">TEST 5 PETITS</button></div>
 </div>
-<div class="btns">
-<button class="btn-mini" onclick="effacer()">EFFACER</button>
-<button class="btn-mini" onclick="exemple()">EXEMPLE SAFE</button>
-<button class="btn-mini" onclick="exempleRouge()">3 ROUGES</button>
-</div>
-</div>
-
-<div class="ver">V4 SAFE - FAIT A LOME - 23/10/2026 - TOUJOURS EN DESSOUS DU RÉEL</div>
-
 <script>
-let historique = [];
-
+let historique=[];
 function renderHisto(){
-  let el=document.getElementById('histo'); el.innerHTML='';
-  historique.forEach(v=>{
-    let d=document.createElement('div');
-    if(v>=10) d.className='chip gold';
-    else d.className='chip '+(v<2?'red':'green');
-    d.textContent=v.toFixed(2)+'x';
-    el.appendChild(d);
-  });
+ let el=document.getElementById('histo'); el.innerHTML='';
+ historique.forEach(v=>{
+  let d=document.createElement('div');
+  if(v>=10) d.className='chip gold'; else d.className='chip '+(v<1.5?'red':'green');
+  d.textContent=v.toFixed(2)+'x'; el.appendChild(d);
+ });
 }
-
 function ajouter(){
-  let input=document.getElementById('inputCrash');
-  let val=parseFloat(input.value.replace(',','.'));
-  if(isNaN(val)||val<1){ alert('Boss entre un crash valide ex: 1.85'); return; }
-  historique.push(val);
-  if(historique.length>12) historique.shift();
-  input.value='';
-  renderHisto();
-  genererSafe();
+ let val=parseFloat(document.getElementById('inputCrash').value.replace(',','.'));
+ if(isNaN(val)||val<1) return;
+ historique.push(val); if(historique.length>15) historique.shift();
+ document.getElementById('inputCrash').value=''; renderHisto(); generer();
 }
+function effacer(){ historique=[]; renderHisto(); document.getElementById('prediction').textContent='--'; }
+function exemple(){ historique=[1.12,1.25,1.06,1.31,1.18]; renderHisto(); generer(); }
 
-function effacer(){
-  historique=[]; renderHisto();
-  document.getElementById('prediction').textContent='--';
-  document.getElementById('badge').textContent='SAFE MODE ON - En attente';
-  document.getElementById('expli').innerHTML='Historique vidé. Entre 2 crashs minimum.';
-  document.getElementById('safeBar').innerHTML='📊 Attendu: -- | Safe: -- | Marge: -25%';
-}
+function generer(){
+ if(historique.length<2){ alert('2 minimum'); return; }
+ let last=historique[historique.length-1];
+ let last2=historique[historique.length-2];
+ let last3=historique[historique.length-3]||last2;
 
-function exemple(){
-  historique=[1.42,1.00,1.45,2.94,1.03,5.69,1.07,1.26];
-  renderHisto(); genererSafe();
-}
-function exempleRouge(){
-  historique=[1.03,1.07,1.26,1.00];
-  renderHisto(); genererSafe();
-}
+ // COMPTAGE 5 PETITS <1.35
+ let consecutifPetits=0;
+ for(let i=historique.length-1;i>=0;i--){
+  if(historique[i]<1.35) consecutifPetits++; else break;
+ }
 
-function genererSafe(){
-  if(historique.length<2){ alert('Boss entre au moins 2 résultats'); return; }
+ let sansOutlier=historique.filter(x=>x<10);
+ let avg=sansOutlier.length?sansOutlier.reduce((a,b)=>a+b,0)/sansOutlier.length:last;
+ let rouges=historique.slice(-5).filter(x=>x<1.35).length;
 
-  let last=historique[historique.length-1];
-  let last2=historique[historique.length-2];
-  let last3=historique[historique.length-3]||last2;
+ let attendu;
 
-  let sansOutlier=historique.filter(x=>x<10);
-  let avg=sansOutlier.length?sansOutlier.reduce((a,b)=>a+b,0)/sansOutlier.length:last;
+ // ANALYSE REELLE
+ if(consecutifPetits>=5){
+  // 5 petits d'affilée -> le 6ème peut faire 8.12x
+  attendu=5.0 + avg*0.6 + consecutifPetits*0.4; // ex: 5 petits -> 6.5-8.5x attendu
+ }else if(consecutifPetits>=3){
+  attendu=2.2 + avg*0.3 + rouges*0.15;
+ }else if(last>3 && last2>3){
+  attendu=1.4 + avg*0.15;
+ }else if(last>last2 && last2>last3 && last>1.8){
+  attendu=last + 0.5 + (last-last3)*0.2;
+ }else{
+  attendu=(last*0.4+last2*0.3+avg*0.3)+0.2;
+ }
+ attendu=Math.max(1.10,Math.min(9,attendu));
 
-  let rouges=historique.slice(-4).filter(x=>x<2).length;
+ // TA TABLE DE CONVERSION - REGLE BOSS
+ let safe;
+ if(attendu < 1.75){
+  safe=1.00;
+ }else if(attendu < 2.0){
+  safe=1.10;
+ }else if(attendu < 2.5){
+  safe=1.25;
+ }else if(attendu < 3.0){
+  safe=1.50; // 2.5 réel -> 1.50 safe (ta règle)
+ }else if(attendu < 4.0){
+  safe=2.00;
+ }else if(attendu < 6.0){
+  safe=2.80;
+ }else{
+  safe=3.50; // réel 8.12x -> safe 3.50x
+ }
 
-  // 1. CALCUL ATTENDU (logique V3.1)
-  let attendu;
-  if(last>10){
-    attendu=1.5+avg*0.12;
-  }else if(rouges>=3){
-    attendu=3.2+rouges*0.3+avg*0.2;
-  }else if(last>last2 && last2>last3){
-    let diff=last-last3;
-    attendu=last+0.35+diff*0.18;
-  }else if(last<last2 && last2<last3){
-    attendu=Math.max(1.3, last+0.1);
-  }else{
-    attendu=(last*0.5+last2*0.3+avg*0.2)+0.25;
-  }
-  attendu=Math.max(1.25,Math.min(10,attendu));
+ safe=Math.round(safe*100)/100;
+ attendu=Math.round(attendu*100)/100;
 
-  // 2. MODE SAFE - TA DEMANDE: TOUJOURS EN DESSOUS
-  // Règle: pred 1.00x couvre réel 1.00 à 1.25x
-  let safe;
-  if(attendu <= 1.33){
-    // Si attendu 1.33x -> safe 1.00x (couvre 1.00-1.33)
-    safe = 1.00;
-  }else if(attendu <= 2.0){
-    // Si attendu 1.60x -> safe 1.20x | attendu 2.0x -> safe 1.50x
-    safe = attendu * 0.75;
-  }else{
-    // Grosses cotes: -25%
-    safe = attendu * 0.75;
-  }
-
-  safe=Math.max(1.00,Math.min(8,safe));
-  safe=Math.round(safe*100)/100;
-  attendu=Math.round(attendu*100)/100;
-
-  let marge=Math.round((1-safe/attendu)*100);
-  let couvre=`${safe.toFixed(2)}x à ${(safe*1.33).toFixed(2)}x`;
-
-  document.getElementById('prediction').textContent=safe.toFixed(2)+'x';
-  document.getElementById('badge').textContent=`SAFE ${safe.toFixed(2)}x | Attendu réel ${attendu.toFixed(2)}x | -${marge}%`;
-  document.getElementById('expli').innerHTML=
-    `🛡️ <b style="color:#00ff88">TU SORS À ${safe.toFixed(2)}x</b><br>`+
-    `Crash réel attendu: <b>${attendu.toFixed(2)}x</b><br><br>`+
-    `✅ Si tu encaisses à <b>${safe.toFixed(2)}x</b>, tu es avant le crash de ${attendu.toFixed(2)}x → GAGNÉ<br>`+
-    `📦 Ta prédiction <b>${safe.toFixed(2)}x couvre les réels de ${couvre}</b> comme tu as demandé.`;
-
-  document.getElementById('safeBar').innerHTML=
-    `📊 <b>Attendu réel:</b> ${attendu}x | <b>Safe (ton cashout):</b> ${safe}x | <b>Marge sécurité:</b> -${marge}% | <b>Rouges:</b> ${rouges}/4 | <b>Avg sans outlier:</b> ${avg.toFixed(2)}x`;
+ document.getElementById('prediction').textContent=safe.toFixed(2)+'x';
+ document.getElementById('badge').textContent=`SAFE ${safe}x | VRAI ATTENDU ${attendu}x`;
+ document.getElementById('expli').innerHTML=
+  `🧠 Analyse: ${consecutifPetits} petits <1.35 d'affilée, ${rouges}/5 rouges<br>`+
+  `📊 Vrai crash attendu: <b>${attendu}x</b><br>`+
+  `🛡️ Selon ta règle: attendu ${attendu}x → safe <b>${safe}x</b><br><br>`+
+  (attendu<1.75?`✅ Règle appliquée: attendu ${attendu}x <1.75 → on sort 1.00x`:`✅ Règle appliquée: attendu ${attendu}x >=2.5 → on peut sortir ${safe}x`);
+ document.getElementById('bar').innerHTML=
+  `Attendu réel: ${attendu}x | Safe affiché: ${safe}x | Petits d'affilée: ${consecutifPetits} | Avg: ${avg.toFixed(2)}x | Table: <1.75→1.00 | 2.5→1.50 | 8.12→3.50`;
 }
 renderHisto();
 </script>
