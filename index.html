@@ -1,1 +1,42 @@
-
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lucky Jet 1Win GOLD - Lome</title>
+<style>
+body{margin:0;background:#0b0f1a;color:#fff;font-family:Arial,sans-serif;display:flex;flex-direction:column;align-items:center;min-height:100vh}
+.header{width:100%;background:linear-gradient(90deg,#FFD700,#FFA500);color:#000;padding:12px;text-align:center;font-weight:bold;font-size:18px}
+.container{max-width:400px;width:90%;margin:20px auto;background:#111827;border:1px solid #FFD700;border-radius:16px;padding:20px;box-shadow:0 0 30px rgba(255,215,0,0.3)}
+.prediction{font-size:72px;font-weight:900;text-align:center;color:#FFD700;margin:10px 0;text-shadow:0 0 20px #FFD700}
+.status{text-align:center;padding:10px;background:#1f2937;border-radius:10px;margin:10px 0}
+.btn{width:100%;padding:16px;background:linear-gradient(90deg,#FFD700,#FFA500);border:none;border-radius:12px;font-weight:bold;font-size:18px;color:#000;cursor:pointer;margin-top:10px}
+.history{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:15px}
+.chip{padding:6px 12px;border-radius:20px;font-size:13px;font-weight:bold}
+.green{background:#10b981} .red{background:#ef4444} .gold{background:#FFD700;color:#000}
+</style>
+</head>
+<body>
+<div class="header">🚀 LUCKY JET 1WIN - GOLD V1 - FAIT A LOME</div>
+<div class="container">
+<div style="text-align:center;opacity:0.8">Prochaine prediction</div>
+<div class="prediction" id="pred">1.85x</div>
+<div class="status" id="status">Signal FORT - Confiance 87%</div>
+<button class="btn" onclick="generate()">NOUVEAU SIGNAL</button>
+<div class="history" id="hist">
+<span class="chip green">2.14x</span><span class="chip red">1.02x</span>
+<span class="chip gold">5.21x</span><span class="chip green">1.89x</span>
+</div>
+</div>
+<script>
+function generate(){
+const vals=["1.23x","1.45x","1.85x","2.14x","2.89x","3.45x","1.11x","4.21x","1.67x"];
+const p=vals[Math.floor(Math.random()*vals.length)];
+document.getElementById('pred').innerText=p;
+const conf=Math.floor(75+Math.random()*20);
+document.getElementById('status').innerText="Signal "+(conf>85?"FORT":"MOYEN")+" - Confiance "+conf+"%";
+}
+setInterval(generate,8000);
+</script>
+</body>
+</html>
