@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>V7 FINAL - FAIT A LOME</title>
+<title>V8 BOSS SAFE 3.5 - FAIT A LOME</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:#070a1e;color:#fff;min-height:100vh}
 .top{background:linear-gradient(90deg,#00d26a,#00ff88);color:#000;text-align:center;padding:12px;font-weight:900;font-size:10px}
@@ -23,14 +23,14 @@
 </style>
 </head>
 <body>
-<div class="top">🛡️ V7 FINAL - ANTI-OUTLIER + REGLE BOSS 1.75→1.00 / 2.5→1.50</div>
+<div class="top">🛡️ V8 BOSS SAFE - 2.00x AFFICHÉ = 3.5x MINIMUM ATTENDU</div>
 <div class="box">
-<div style="color:#8b92b5;font-size:12px">V7 Final - Analyse + Table SAFE</div>
+<div style="color:#8b92b5;font-size:12px">V8 BOSS - MODE SAUVETAGE</div>
 <div class="pred" id="prediction">--</div>
 <div class="badge" id="badge">En attente</div>
-<div class="expli" id="expli">Règle: <1.75 attendu → 1.00x safe. 2.5 attendu → 1.50x safe. Outliers >10x ignorés.</div>
+<div class="expli" id="expli">Règle BOSS: Attendu <2.50 → 1.00x (SKIP). 2.00x affiché SEULEMENT si Attendu >=3.50x</div>
 <div class="bar" id="bar">--</div>
-<button class="btn" onclick="generer()">🛡️ ANALYSER V7 FINAL</button>
+<button class="btn" onclick="generer()">🛡️ ANALYSER V8 BOSS</button>
 </div>
 <div class="h-title">HISTORIQUE</div>
 <div class="histo" id="histo"></div>
@@ -59,58 +59,42 @@ function exemple(){ historique=[1.12,1.25,1.06,1.31,1.18]; renderHisto(); genere
 
 function generer(){
  if(historique.length<2){ alert('2 minimum'); return; }
-
- // FILTRE ANTI-OUTLIER >10x pour moyenne et analyse
  let sansOutlier=historique.filter(x=>x<10);
  if(sansOutlier.length===0) sansOutlier=[historique[historique.length-1]<10?historique[historique.length-1]:1.5];
  let avg=sansOutlier.reduce((a,b)=>a+b,0)/sansOutlier.length;
-
- // Dernier VALIDE (<10x) pour analyse
- let lastValide=[...historique].reverse().find(x=>x<10)||last;
+ let lastValide=[...historique].reverse().find(x=>x<10)||1.5;
  let last=lastValide;
  let last2=[...historique].slice(0,-1).reverse().find(x=>x<10)||last;
  let last3=[...historique].slice(0,-2).reverse().find(x=>x<10)||last2;
 
  let consecutifPetits=0;
- for(let i=sansOutlier.length-1;i>=0;i--){
-  if(sansOutlier[i]<1.35) consecutifPetits++; else break;
- }
- let rouges=sansOutlier.slice(-5).filter(x=>x<1.35).length;
+ for(let i=sansOutlier.length-1;i>=0;i--){ if(sansOutlier[i]<1.35) consecutifPetits++; else break; }
 
  let attendu;
- if(consecutifPetits>=5){
-  attendu=5.5 + avg*0.5; // 5 petits -> 8.12x possible
- }else if(consecutifPetits>=3){
-  attendu=2.0 + avg*0.3;
- }else if(last>3 && last2>3){
-  attendu=1.35 + avg*0.1;
- }else if(last>last2 && last2>last3 && last>1.8){
-  attendu=last+0.4;
- }else{
-  attendu=(last*0.4+last2*0.3+avg*0.3)+0.15;
- }
+ if(consecutifPetits>=5){ attendu=5.5 + avg*0.5; }
+ else if(consecutifPetits>=3){ attendu=2.2 + avg*0.3; }
+ else if(last>3 && last2>3){ attendu=1.35 + avg*0.1; }
+ else if(last>last2 && last2>last3 && last>1.8){ attendu=last+0.4; }
+ else{ attendu=(last*0.4+last2*0.3+avg*0.3)+0.15; }
  attendu=Math.max(1.10,Math.min(9,attendu));
 
- // TA TABLE
+ // NOUVELLE TABLE BOSS - TA DEMANDE
  let safe;
- if(attendu < 1.75) safe=1.00;
- else if(attendu < 2.0) safe=1.10;
- else if(attendu < 2.5) safe=1.25;
- else if(attendu < 3.0) safe=1.50;
- else if(attendu < 4.0) safe=2.00;
- else if(attendu < 6.0) safe=2.80;
- else safe=3.50;
+ if(attendu < 2.50) safe = 1.00;      // <2.5 on te sauve, on dit SKIP
+ else if(attendu < 3.50) safe = 1.50; // 2.5 à 3.49 on donne max 1.50
+ else if(attendu < 4.50) safe = 2.00; // 3.5 à 4.49 on donne 2.00 -> TA REGLE RESPECTEE
+ else if(attendu < 6.00) safe = 2.80;
+ else safe = 3.50;
 
  safe=Math.round(safe*100)/100; attendu=Math.round(attendu*100)/100;
 
  document.getElementById('prediction').textContent=safe.toFixed(2)+'x';
- document.getElementById('badge').textContent=`SAFE ${safe}x | VRAI ATTENDU ${attendu}x | AVG SANS OUTLIER ${avg.toFixed(2)}x`;
+ document.getElementById('badge').textContent = safe===1.00 ? `⛔ SKIP - ATTENDU ${attendu}x TROP RISQUÉ` : `SAFE ${safe}x | VRAI ATTENDU ${attendu}x`;
  document.getElementById('expli').innerHTML=
-  `🧠 ${consecutifPetits} petits <1.35 d'affilée | ${rouges}/5 rouges | Outliers >10x ignorés (${historique.length-sansOutlier.length})<br>`+
-  `📊 Vrai attendu: <b>${attendu}x</b> (avg sans outlier ${avg.toFixed(2)}x)<br>`+
-  `🛡️ Safe: <b>${safe}x</b> selon règle ${attendu<1.75?'<1.75→1.00':attendu>=2.5&&attendu<3?'2.5→1.50':attendu>=8?'8.12→3.50':attendu+'→'+safe}`;
- document.getElementById('bar').innerHTML=
-  `Attendu: ${attendu}x | Safe: ${safe}x | Petits: ${consecutifPetits} | Avg sans outlier: ${avg.toFixed(2)}x | Histo complet: ${historique.length} (dont ${historique.filter(x=>x>=10).length} outliers >10x ignorés)`;
+  `🧠 ${consecutifPetits} petits <1.35 | Avg sans outlier ${avg.toFixed(2)}x<br>`+
+  `📊 Vrai attendu: <b>${attendu}x</b><br>`+
+  `🛡️ Safe: <b>${safe}x</b> - ${safe===1.00?'Je te sauve, NE JOUE PAS':safe===2.00?`Je dis 2.00 car attendu ${attendu} >=3.5`:attendu+'→'+safe}`;
+ document.getElementById('bar').innerHTML=`Attendu: ${attendu}x | Safe: ${safe}x | Règle BOSS: 2.00 affiché = attendu >=3.5 minimum`;
 }
 renderHisto();
 </script>
