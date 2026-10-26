@@ -3,15 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>V8 BOSS SAFE 3.5 - FAIT A LOME</title>
+<title>V9 ULTRA SAFE - FAIT A LOME</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:#070a1e;color:#fff;min-height:100vh}
-.top{background:linear-gradient(90deg,#00d26a,#00ff88);color:#000;text-align:center;padding:12px;font-weight:900;font-size:10px}
+.top{background:linear-gradient(90deg,#00d26a,#00ff88);color:#000;text-align:center;padding:12px;font-weight:900;font-size:11px}
 .box{background:linear-gradient(180deg,#1a234d,#131a3a);border:2px solid #00d26a60;border-radius:20px;margin:12px;padding:18px;text-align:center}
-.pred{font-size:64px;font-weight:900;color:#00ff88;margin:4px 0}
-.badge{padding:8px 14px;border-radius:20px;font-size:11px;font-weight:800;display:inline-block;margin-bottom:10px;background:#00d26a22;color:#00ff88;border:1px solid #00d26a}
+.pred{font-size:64px;font-weight:900;margin:4px 0}.pred.green{color:#00ff88}.pred.red{color:#ff2d55}
+.badge{padding:8px 14px;border-radius:20px;font-size:11px;font-weight:800;display:inline-block;margin-bottom:10px;border:1px solid #00d26a}
+.badge.ok{background:#00d26a22;color:#00ff88}.badge.no{background:#ff2d5522;color:#ff2d55;border-color:#ff2d55}
 .btn{width:100%;background:linear-gradient(90deg,#00d26a,#00ff88);border:none;padding:16px;border-radius:14px;font-weight:900;font-size:13px;color:#000;cursor:pointer;margin-top:8px}
-.expli{background:#0e1430;border-radius:10px;padding:10px;margin-top:8px;font-size:11px;color:#aab2d0;text-align:left;line-height:1.4}
+.expli{background:#0e1430;border-radius:10px;padding:10px;margin-top:8px;font-size:11px;color:#aab2d0;text-align:left;line-height:1.5}
 .bar{background:#00d26a15;border:1px dashed #00d26a60;border-radius:10px;padding:10px;margin-top:10px;font-size:10px;color:#00ff88;text-align:left}
 .h-title{color:#00ff88;font-weight:900;font-size:11px;margin:18px 12px 8px}
 .histo{display:flex;gap:8px;flex-wrap:wrap;padding:0 12px}
@@ -23,14 +24,14 @@
 </style>
 </head>
 <body>
-<div class="top">🛡️ V8 BOSS SAFE - 2.00x AFFICHÉ = 3.5x MINIMUM ATTENDU</div>
+<div class="top">🛡️ V9 ULTRA SAFE - PRÉDIT 1.5 = RÉEL MIN 3.0 | PRÉDIT 2.0 = RÉEL MIN 4.0</div>
 <div class="box">
-<div style="color:#8b92b5;font-size:12px">V8 BOSS - MODE SAUVETAGE</div>
-<div class="pred" id="prediction">--</div>
-<div class="badge" id="badge">En attente</div>
-<div class="expli" id="expli">Règle BOSS: Attendu <2.50 → 1.00x (SKIP). 2.00x affiché SEULEMENT si Attendu >=3.50x</div>
+<div style="color:#8b92b5;font-size:12px">V9 ULTRA SAFE - FAIT A LOMÉ</div>
+<div class="pred green" id="prediction">--</div>
+<div class="badge ok" id="badge">En attente</div>
+<div class="expli" id="expli">Règle BOSS: <3.00 → 1.00x SKIP. 3.00-3.99 → 1.50x. 4.00-5.49 → 2.00x. Tu ne perdras plus sur 1.5 → 1.00</div>
 <div class="bar" id="bar">--</div>
-<button class="btn" onclick="generer()">🛡️ ANALYSER V8 BOSS</button>
+<button class="btn" onclick="generer()">🛡️ ANALYSER V9 ULTRA SAFE</button>
 </div>
 <div class="h-title">HISTORIQUE</div>
 <div class="histo" id="histo"></div>
@@ -54,7 +55,7 @@ function ajouter(){
  historique.push(val); if(historique.length>15) historique.shift();
  document.getElementById('inputCrash').value=''; renderHisto(); generer();
 }
-function effacer(){ historique=[]; renderHisto(); document.getElementById('prediction').textContent='--'; }
+function effacer(){ historique=[]; renderHisto(); document.getElementById('prediction').textContent='--'; document.getElementById('prediction').className='pred green'; document.getElementById('badge').textContent='En attente'; document.getElementById('badge').className='badge ok'; }
 function exemple(){ historique=[1.12,1.25,1.06,1.31,1.18]; renderHisto(); generer(); }
 
 function generer(){
@@ -78,23 +79,36 @@ function generer(){
  else{ attendu=(last*0.4+last2*0.3+avg*0.3)+0.15; }
  attendu=Math.max(1.10,Math.min(9,attendu));
 
- // NOUVELLE TABLE BOSS - TA DEMANDE
+ // TABLE V9 ULTRA SAFE - ANTI 1.5->1.00
  let safe;
- if(attendu < 2.50) safe = 1.00;      // <2.5 on te sauve, on dit SKIP
- else if(attendu < 3.50) safe = 1.50; // 2.5 à 3.49 on donne max 1.50
- else if(attendu < 4.50) safe = 2.00; // 3.5 à 4.49 on donne 2.00 -> TA REGLE RESPECTEE
- else if(attendu < 6.00) safe = 2.80;
+ if(attendu < 3.00) safe = 1.00;
+ else if(attendu < 4.00) safe = 1.50;
+ else if(attendu < 5.50) safe = 2.00;
+ else if(attendu < 7.00) safe = 2.80;
  else safe = 3.50;
 
  safe=Math.round(safe*100)/100; attendu=Math.round(attendu*100)/100;
 
- document.getElementById('prediction').textContent=safe.toFixed(2)+'x';
- document.getElementById('badge').textContent = safe===1.00 ? `⛔ SKIP - ATTENDU ${attendu}x TROP RISQUÉ` : `SAFE ${safe}x | VRAI ATTENDU ${attendu}x`;
+ let predEl=document.getElementById('prediction');
+ predEl.textContent=safe.toFixed(2)+'x';
+ predEl.className='pred '+(safe===1.00?'red':'green');
+
+ let badgeEl=document.getElementById('badge');
+ if(safe===1.00){
+   badgeEl.textContent=`⛔ SKIP - ATTENDU ${attendu}x < 3.00 - JE TE SAUVE`;
+   badgeEl.className='badge no';
+ } else {
+   badgeEl.textContent=`✅ SAFE ${safe}x | VRAI ATTENDU ${attendu}x`;
+   badgeEl.className='badge ok';
+ }
+
  document.getElementById('expli').innerHTML=
   `🧠 ${consecutifPetits} petits <1.35 | Avg sans outlier ${avg.toFixed(2)}x<br>`+
   `📊 Vrai attendu: <b>${attendu}x</b><br>`+
-  `🛡️ Safe: <b>${safe}x</b> - ${safe===1.00?'Je te sauve, NE JOUE PAS':safe===2.00?`Je dis 2.00 car attendu ${attendu} >=3.5`:attendu+'→'+safe}`;
- document.getElementById('bar').innerHTML=`Attendu: ${attendu}x | Safe: ${safe}x | Règle BOSS: 2.00 affiché = attendu >=3.5 minimum`;
+  (safe===1.00 ? `🛡️ <b>Je te sauve:</b> Attendu ${attendu}x trop faible, je dis 1.00x pour éviter 1.50 → 1.00` : 
+   `🛡️ <b>Safe:</b> Je dis ${safe}x car attendu ${attendu}x >= ${safe===1.5?3:4}. Donc même si réel un peu moins, tu es au dessus de ${safe}x`);
+
+ document.getElementById('bar').innerHTML=`Attendu: ${attendu}x | Safe: ${safe}x | Règle V9: Prédit 1.50 = attendu min 3.00 | Prédit 2.00 = attendu min 4.00`;
 }
 renderHisto();
 </script>
