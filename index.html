@@ -1,80 +1,47 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>V11 - Outil Propriétaire</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V11 LuckyJet</title>
 <style>
-  body { background:#07070a; color:white; font-family: sans-serif; margin:0; padding:15px; text-align:center; }
-  h2 { color:#00ff88; margin:10px; font-size:18px; }
-  #hashInput { width:92%; padding:22px; font-size:20px; border-radius:12px; border:2px solid #00ff88; background:#111; color:white; text-align:center; outline:none; }
-  #result { font-size:85px; font-weight:900; margin:15px 0 5px 0; color:#00ff88; line-height:1; }
-  #status { font-size:16px; color:#aaa; height:20px; }
-  #hist { margin-top:20px; text-align:left; background:#111; border-radius:10px; padding:10px; max-height:200px; overflow:auto; }
-  .line { padding:8px; border-bottom:1px solid #222; display:flex; justify-content:space-between; }
-  button { background:#222; color:white; border:1px solid #333; padding:12px 18px; border-radius:8px; margin-top:10px; }
+ body{background:#07070a;color:white;text-align:center;font-family:sans-serif;padding:15px}
+ #in{width:92%;padding:22px;font-size:18px;border-radius:12px;border:2px solid #7a5CFA;background:#111;color:white;text-align:center}
+ #res{font-size:80px;font-weight:900;margin:20px 0;color:#7a5CFA}
+ #info{color:#aaa;font-size:14px}
+ .box{background:#111;padding:10px;border-radius:10px;margin-top:20px;text-align:left}
 </style>
 </head>
 <body>
-
-<h2>V11 - DECODEUR POUR MON JEU</h2>
-<input id="hashInput" type="text" placeholder="COLLE LE HASH ICI" autocomplete="off" autofocus>
-
-<div id="result">--</div>
-<div id="status">En attente...</div>
-
-<button onclick="document.getElementById('hashInput').value=''; document.getElementById('result').innerText='--';">EFFACER</button>
-
-<div id="hist"><b>Historique:</b><div id="histList"></div></div>
-
+<h2 style="color:#7a5CFA">V11 - LUCKYJET VERIF</h2>
+<input id="in" placeholder="Colle le HASH FINAL ici (après le tour)">
+<div id="res">--</div>
+<div id="info">En attente...</div>
+<div class="box">
+<b>Mode:</b><br>
+Aviator = utilise 13 lettres du HASH<br>
+LuckyJet = utilise 8 lettres du HASH<br><br>
+Ton HASH <b>ecd8d60d...</b> = 8 lettres <b>ecd8d60d</b> = 396...<br>
+Formule LuckyJet: 4294967296 / valeur * 0.99
+</div>
 <script>
-const e = 4503599627370496; // 2^52
-const input = document.getElementById('hashInput');
-const resDiv = document.getElementById('result');
-const statusDiv = document.getElementById('status');
-const histList = document.getElementById('histList');
-
-function decode(hashFull) {
-  try {
-    let clean = hashFull.trim().toLowerCase().replace(/[^a-f0-9]/g,'');
-    if (clean.length < 13) return null;
-    let first13 = clean.slice(0,13);
-    let r = parseInt(first13, 16);
-    let crash;
-    if (r % 33 === 0) crash = 1.00;
-    else crash = e / (e - r);
-    crash = Math.floor(crash * 100) / 100;
-    if (crash > 1000) crash = 1000;
-    if (crash < 1) crash = 1;
-    return { crash: crash, hash: clean };
-  } catch(e) { return null; }
+const inp=document.getElementById('in');
+const res=document.getElementById('res');
+const info=document.getElementById('info');
+inp.oninput=()=>{
+ let h=inp.value.trim().toLowerCase().replace(/[^a-f0-9]/g,'');
+ if(h.length<8){res.innerText='--'; return;}
+ let first8=h.slice(0,8);
+ let val=parseInt(first8,16);
+ let crash= (4294967296 / (val+1)) * 0.99;
+ if(val===0) crash=1;
+ crash=Math.floor(crash*100)/100;
+ if(crash<1) crash=1;
+ res.innerText=crash.toFixed(2)+'x';
+ info.innerText='8 lettres = '+first8+' | val = '+val;
+ if(crash<1.2) res.style.color='#ff3b3b';
+ else if(crash<2) res.style.color='#ffaa00';
+ else res.style.color='#7a5CFA';
 }
-
-input.addEventListener('input', () => {
-  let val = input.value;
-  if (val.length < 10) { resDiv.innerText='--'; statusDiv.innerText='Colle...'; return; }
-  let decoded = decode(val);
-  if (!decoded) { statusDiv.innerText='HASH incomplet...'; return; }
-  
-  resDiv.innerText = decoded.crash.toFixed(2) + 'x';
-  statusDiv.innerText = 'OK - ' + decoded.hash.slice(0,10) + '...';
-  
-  // Couleur selon valeur
-  if(decoded.crash < 1.20) resDiv.style.color = '#ff3b3b';
-  else if(decoded.crash < 2) resDiv.style.color = '#ffaa00';
-  else resDiv.style.color = '#00ff88';
-
-  // Ajoute à l'historique si nouveau
-  if (histList.innerHTML.indexOf(decoded.hash.slice(0,15)) === -1) {
-    let div = document.createElement('div');
-    div.className='line';
-    div.innerHTML = '<span>'+decoded.hash.slice(0,10)+'..</span><b>'+decoded.crash.toFixed(2)+'x</b>';
-    histList.prepend(div);
-  }
-});
-
-// Test auto avec tes exemples
-console.log('V11 pret. Teste avec 252dd280fd5781bb8b74d161cb2b66638ef07ba9de6b048dbea98df68b3d1668 => 1.16x');
 </script>
 </body>
 </html>
