@@ -1,58 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>V11 LuckyJet</title>
+<title>V11 - DECODEUR POUR MON JEU</title>
 <style>
- body{background:#07070a;color:white;text-align:center;font-family:sans-serif;padding:15px}
- #in{width:92%;padding:22px;font-size:18px;border-radius:12px;border:2px solid #7a5CFA;background:#111;color:white;text-align:center}
- #res{font-size:80px;font-weight:900;margin:20px 0;color:#7a5CFA}
- #info{color:#aaa;font-size:14px}
- .box{background:#111;padding:10px;border-radius:10px;margin-top:20px;text-align:left}
- #clearBtn{background:#ff3b3b;color:white;border:none;padding:14px 30px;border-radius:12px;font-size:16px;font-weight:bold;margin-top:15px}
+body{background:#07070a;color:white;text-align:center;font-family:sans-serif;padding:12px;margin:0}
+h2{color:#00ff88;font-size:18px;letter-spacing:1px}
+#in{width:92%;padding:20px;font-size:18px;border-radius:14px;border:2px solid #00ff88;background:#0f0f0f;color:#fff;text-align:center;outline:none}
+#res{font-size:80px;font-weight:900;margin:15px 0 5px 0;color:#00ff88;line-height:1}
+#ok{color:#888;font-size:14px;margin-bottom:15px}
+#clear{background:#2a2a2a;color:#fff;border:none;padding:10px 22px;border-radius:10px;font-size:14px}
+#hist{background:#111;border-radius:12px;padding:12px;margin-top:20px;text-align:left}
+#hist b{font-size:14px}
+.item{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #222;font-size:14px}
 </style>
 </head>
 <body>
-<h2 style="color:#7a5CFA">V11 - LUCKYJET VERIF</h2>
-<input id="in" placeholder="Colle le HASH FINAL ici (après le tour)">
-<br>
-<button id="clearBtn" onclick="clearHash()">EFFACER ✖</button>
+<h2>V11 - DECODEUR POUR MON JEU</h2>
+<input id="in" placeholder="Colle le HASH ici">
 <div id="res">--</div>
-<div id="info">En attente...</div>
-<div class="box">
-<b>Mode:</b><br>
-Aviator = utilise 13 lettres du HASH<br>
-LuckyJet = utilise 8 lettres du HASH<br><br>
-Ton HASH <b>ecd8d60d...</b> = 8 lettres <b>ecd8d60d</b> = 396...<br>
-Formule LuckyJet: 4294967296 / valeur * 0.99
+<div id="ok">En attente...</div>
+<button id="clear" onclick="effacer()">EFFACER</button>
+<div id="hist">
+<b>Historique:</b>
+<div id="list"></div>
 </div>
 <script>
+const E=4503599627370496;
 const inp=document.getElementById('in');
 const res=document.getElementById('res');
-const info=document.getElementById('info');
+const ok=document.getElementById('ok');
+const list=document.getElementById('list');
 
-function clearHash(){
-  inp.value='';
-  res.innerText='--';
-  info.innerText='En attente...';
-  res.style.color='#7a5CFA';
-  inp.focus();
+function effacer(){
+ inp.value='';
+ res.innerText='--';
+ ok.innerText='En attente...';
 }
 
 inp.oninput=()=>{
  let h=inp.value.trim().toLowerCase().replace(/[^a-f0-9]/g,'');
- if(h.length<8){res.innerText='--'; info.innerText='Colle 8 lettres minimum'; return;}
- let first8=h.slice(0,8);
- let val=parseInt(first8,16);
- let crash= (4294967296 / (val+1)) * 0.99;
- if(val===0) crash=1;
+ if(h.length<13){res.innerText='--'; ok.innerText='Colle 13 lettres...'; return;}
+ let r=parseInt(h.slice(0,13),16);
+ let crash;
+ if(r%33==0) crash=1;
+ else crash=E/(E-r);
  crash=Math.floor(crash*100)/100;
  if(crash<1) crash=1;
+ if(crash>1000) crash=1000;
  res.innerText=crash.toFixed(2)+'x';
- info.innerText='8 lettres = '+first8+' | val = '+val;
+ ok.innerText='OK - '+h.slice(0,9)+'...';
+ 
+ // Ajoute à l'historique
+ if(h.length>=32){
+   let div=document.createElement('div');
+   div.className='item';
+   div.innerHTML='<span>'+h.slice(0,10)+'..</span><b>'+crash.toFixed(2)+'x</b>';
+   list.prepend(div);
+ }
  if(crash<1.2) res.style.color='#ff3b3b';
  else if(crash<2) res.style.color='#ffaa00';
- else res.style.color='#7a5CFA';
+ else res.style.color='#00ff88';
 }
 </script>
 </body>
